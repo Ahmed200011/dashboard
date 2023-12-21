@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
@@ -11,7 +11,22 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    @if (Auth::check())
+                        wellcom {{Auth::user()->name}}
+                    @endif
+                </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-layout> --}}
+
+
+@extends('dashboard.layout.app')
+
+@section('main')
+<h1> {{ trans('validation.custom.my-dashbord') }}</h1>
+
+@endsection
+
+@section("page_title","Main Dashbord")

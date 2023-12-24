@@ -34,22 +34,29 @@
                             <span class="hide-menu">{{ trans('validation.custom.home') }}</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+
+
+
+                            <a class="sidebar-link" href="{{ route('dashboard.main') }}" aria-expanded="false">
+                            {{-- <a class="sidebar-link" href="{{ url('/dashboard') }}" aria-expanded="false"> --}}
+
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
                                 <span class="hide-menu">{{ trans('validation.custom.dashbord') }}</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('dashboard.users.index') }}" aria-expanded="false">
 
-                                {{--  --}}
-                                {{--  --}}
-                                {{--  --}}
-                                {{-- <span class="hide-menu">{{ trans('Dashboard') }}</span> json file--}}
-                                {{--  --}}
-                                {{--  --}}
-                                {{--  --}}
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">{{ trans('validation.custom.users ') }}</span>
 
                             </a>
                         </li>
+
                         {{-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">UI COMPONENTS</span>
@@ -98,7 +105,7 @@
 
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">AUTH</span>
+                            <span class="hide-menu">{{ Str::upper(__('validation.custom.auth')) }}</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('login') }}" aria-expanded="false">
@@ -227,7 +234,7 @@
                                             @csrf
                                             <button type="submit"
                                                 class="btn btn-outline-primary mx-3 mt-2 d-block">{{ trans('validation.custom.log-out') }}</button>
-                                            </form>
+                                        </form>
 
                                     </div>
                                 </div>

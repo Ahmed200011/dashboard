@@ -159,7 +159,7 @@
                                         <label>Email</label>
                                         <div class="mb-3">
                                             <x-input-label for="email" :value="__('Email')" />
-                                            <x-text-input id="email" class="block mt-1 w-full" type="email"
+                                            <x-text-input id="email" class="block mt-1 w-full" type=""
                                                 name="email" :value="old('email')" required autofocus
                                                 autocomplete="username" />
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />

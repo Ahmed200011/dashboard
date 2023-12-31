@@ -1,4 +1,5 @@
 @include('dashboardA.layout.header')
+@include('sweetalert::alert')
 
 
 @yield('main')

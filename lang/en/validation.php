@@ -188,6 +188,8 @@ return [
         'main_users_control' => 'Main Users Control ',
         'users ' => ' Users  ',
         'Add_user' => 'Add User',
+        'edit_user' => ' Edit User ',
+    
     ],
 
     /*

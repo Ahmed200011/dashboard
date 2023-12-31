@@ -3,12 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Laratrust\Contracts\LaratrustUser;
+use Illuminate\Notifications\Notifiable;
+use Laratrust\Traits\HasRolesAndPermissions;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laratrust\Contracts\LaratrustUser;
-use Laratrust\Traits\HasRolesAndPermissions;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements LaratrustUser
 {
@@ -24,6 +25,7 @@ class User extends Authenticatable implements LaratrustUser
         'name',
         'email',
         'password',
+        'img',
     ];
 
     /**
@@ -45,4 +47,12 @@ class User extends Authenticatable implements LaratrustUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function Name(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => ucwords($value),
+        );
+    }
 }

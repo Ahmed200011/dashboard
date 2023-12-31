@@ -15,6 +15,9 @@
                                 <h6 class="fw-semibold mb-0">Id</h6>
                             </th>
                             <th class="border-bottom-0">
+                                <h6 class="fw-semibold mb-0">image</h6>
+                            </th>
+                            <th class="border-bottom-0">
                                 <h6 class="fw-semibold mb-0">Name</h6>
                             </th>
                             <th class="border-bottom-0">
@@ -32,11 +35,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $user)
+                        @foreach ($data as $key=>$user)
                             <tr>
                                 {{-- @dd($data) --}}
                                 <td class="border-bottom-0">
-                                    <h6 class="fw-semibold mb-0">{{ $user->id }}</h6>
+                                    <h6 class="fw-semibold mb-0">{{ $key+1 }}</h6>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <img src="{{ asset('dashbord/assets/images/'. $user->img) }}" width="50" height="50">
                                 </td>
                                 <td class="border-bottom-0">
                                     <p class="mb-0 fw-normal">{{ $user->name }}</p>
@@ -45,33 +51,38 @@
                                     <p class="mb-0 fw-normal">{{ $user->email }}</p>
                                 </td>
                                 <td class="border-bottom-0">
-                                    <p class="mb-0 fw-normal">
+
 
                                         @foreach ($user->roles as $role)
                                             <p class="mb-0 fw-normal"> {{ $role->name }}</p>
                                             {{-- <p class="mb-0 fw-normal"> {{$role->permissions->name}}</p> --}}
                                         @endforeach
 
-                                    </p>
+
                                 </td>
                                 <td class="border-bottom-0">
 
                                     <select  class="form-select">
-                                        @foreach ($user->roles as $role)
-                                        @foreach ($role->permissions as $permission)
+                                        @foreach ($user->allPermissions() as $perm)
+
                                             <option>
-                                                <p class="mb-0 fw-normal"> {{ $permission->display_name }}</p>
+                                                <p class="mb-0 fw-normal"> {{ $perm->display_name}}</p>
                                             </option>
-                                            {{-- <p class="mb-0 fw-normal"> {{$role->permissions->name}}</p> --}}
+                                            {{-- <p class="mb-0 fw-normal"> {{$perm->permissions->name}}</p> --}}
                                         @endforeach
-                                        @endforeach
+
                                     </select>
 
                                 </td>
-                                <td class="border-bottom-0">
-                                    <p class="mb-0 fw-normal">
-                                        <a href="#" type="button" class="btn btn-secondary m-1 ">Edit</a>
-                                        <a href="#" type="button" class="btn btn-danger m-1 ">Delet</a>
+                                <td class="border-bottom-0 d-flex">
+                                    <p class="mb-0 fw-normal ">
+                                        <a href="{{route('dashboard.users.edit',$user->id)}}" type="button" class="btn btn-secondary m-1 ">Edit</a>
+                                        <form method="post" action="{{route('dashboard.users.destroy',$user->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger m-1 ">Delet</button>
+
+                                        </form>
 
                                     </p>
                                 </td>

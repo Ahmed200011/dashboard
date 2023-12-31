@@ -17,7 +17,7 @@ class AccessToDashBoard
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(Auth::user()->hasRole('user')){
+        if(!Auth::user()->hasPermission('users_create')){
             abort(403);
         }
             return $next($request);

@@ -28,9 +28,9 @@ Route::group(
             return view('welcome');
         });
 
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->middleware(['auth', 'verified', 'accessToDashboard'])->name('dashboard');
+        // Route::get('/dashboard', function () {
+        //     return view('dashboard');
+        // })->middleware(['auth', 'verified', 'accessToDashboard'])->name('dashboard');
 
         Route::middleware('auth')->group(function () {
             Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,7 +40,7 @@ Route::group(
 
         Route::prefix('/dashboard')
             ->as('dashboard.')
-            ->middleware(['auth', 'verified', 'accessToDashboard'])
+            ->middleware(['auth', 'verified', 'accessToDashboard']) //
             ->group(function () {
                 Route::get('/', function () {
                     return view('dashboard');

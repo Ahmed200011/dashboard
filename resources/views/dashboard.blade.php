@@ -22,11 +22,11 @@
 </x-app-layout> --}}
 
 
-@extends('dashboard.layout.app')
+@extends('dashboardA.layout.app')
 
 @section('main')
 <h1> {{ trans('validation.custom.my-dashbord') }}</h1>
 
 @endsection
 
-@section("page_title","Main Dashbord")
+@section("page_title", trans('validation.custom.main dashboard') )

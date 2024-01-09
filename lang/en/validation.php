@@ -189,7 +189,9 @@ return [
         'users ' => ' Users  ',
         'Add_user' => 'Add User',
         'edit_user' => ' Edit User ',
-    
+        'header' => 'header',
+        'footer' => 'footer',
+
     ],
 
     /*

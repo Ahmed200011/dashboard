@@ -5,11 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('page_title', 'Dashbord')</title>
+
     <link rel="shortcut icon" type="image/png" href="{{ asset('dashbord/assets/images/logos/j.jpeg') }}" />
     <link rel="stylesheet" href="{{ asset('dashbord/assets/css/styles.min.css') }}" />
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script> --}}
+
 </head>
 
 <body>
+
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
@@ -46,13 +50,34 @@
                                 <span class="hide-menu">{{ trans('validation.custom.dashbord') }}</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('dashboard.users.index') }}" aria-expanded="false">
 
                                 <span>
-                                    <i class="ti ti-layout-dashboard"></i>
+                                    <i class="ti ti-user"></i>
                                 </span>
                                 <span class="hide-menu">{{ trans('validation.custom.users ') }}</span>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('dashboard.portfolioHeader.index') }}" aria-expanded="false">
+
+                                <span>
+                                    <i class="ti ti-arrow-up-circle"></i>
+                                </span>
+                                <span class="hide-menu">{{ trans('validation.custom.header') }}</span>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('dashboard.portfolioCategory.index') }}" aria-expanded="false">
+
+                                <span>
+                                    <i class="ti ti-category"></i>
+                                </span>
+                                <span class="hide-menu">category</span>
 
                             </a>
                         </li>

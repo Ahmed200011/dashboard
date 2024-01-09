@@ -66,10 +66,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'accessToDashboard' => \App\Http\Middleware\AccessToDashBoard::class,
 
-        // 'role' => \Laratrust\Middleware\LaratrustRole::class,
-        // 'permission' => \Laratrust\Middleware\LaratrustPermission::class,
-        // 'ability' => \Laratrust\Middleware\LaratrustAbility::class,
 
+        'role' => \Laratrust\Middleware\Role::class,
+        'permission' => \Laratrust\Middleware\Permission::class,
+        'ability' => \Laratrust\Middleware\Ability::class,
+       
         /**** OTHER MIDDLEWARE ****/
         'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
         'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,

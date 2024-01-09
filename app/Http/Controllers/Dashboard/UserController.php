@@ -47,15 +47,15 @@ class UserController extends Controller
             'password' => 'required|min:8|max:20',
             'role' => 'required',
             'perm' => 'required',
-            'img' => 'required|mimes:png,jpg,jpeg|max:3000',
+            // 'img' => 'required|mimes:png,jpg,jpeg|max:3000',
         ]);
 
         // dd($request);
         $request_except = $request->except('password', 'role', 'img', '_token', 'perm');
         $request_except['password'] = Hash::make($request->password);
-        if ($request->img) {
-            $imageName = uniqid() . $request->file('img')->getClientOriginalName();
-        }
+        // if ($request->img) {
+        //     $imageName = uniqid() . $request->file('img')->getClientOriginalName();
+        // }
         $user = User::create($request_except);
 
 

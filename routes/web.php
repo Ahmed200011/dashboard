@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\portfolio\CategoryController;
+use App\Http\Controllers\portfolio\HeaderController;
+use App\Http\Controllers\portfolio\PortfolioController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
@@ -47,7 +50,17 @@ Route::group(
                 })->name('main');
 
                 Route::resource('users', UserController::class);
+                Route::resource('portfolioHeader', HeaderController::class);
+                Route::resource('portfolioCategory', CategoryController::class);
             });
+            Route::get('/portfolio', [PortfolioController::class, 'index']);
+
+            // Route::get('/portfolio', function () {
+            //     return view('portfolio.portfolio');
+            // });
+
+
+
 
         //...
     }
